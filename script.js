@@ -512,3 +512,6 @@ function getVal() {
 function picDisp() {
     setTimeout(() => document.getElementById("myPicture").src=images[val], 7000)
 }
+
+var score = 0;
+var count = 0;
