@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="#" />
+    <title>Music Quiz</title>
+</head>
+<body>
+    <header>
+        <audio src="./tracks/Back To December.mp4"></audio>
+        <audio src="./tracks/Better Than Revenge.mp4"></audio>
+        <audio src="./tracks/Castles Crumbling.mp4"></audio>
+        <audio src="./tracks/Dear John.mp4"></audio>
+        <audio src="./tracks/Electric Touch.mp4"></audio>
+        <audio src="./tracks/Enchanted.mp4"></audio>
+        <audio src="./tracks/Foolish One.mp4"></audio>
+        <audio src="./tracks/Haunted.mp4"></audio>
+        <audio src="./tracks/I Can See You.mp4"></audio>
+        <audio src="./tracks/Innocent.mp4"></audio>
+        <audio src="./tracks/Last Kiss.mp4"></audio>
+        <audio src="./tracks/Long Live.mp4"></audio>
+        <audio src="./tracks/Mean.mp4"></audio>
+        <audio src="./tracks/Mine.mp4"></audio>
+        <audio src="./tracks/Never Grow Up.mp4"></audio>
+        <audio src="./tracks/Ours.mp4"></audio>
+        <audio src="./tracks/Sparks Fly.mp4"></audio>
+        <audio src="./tracks/Speak Now.mp4"></audio>
+        <audio src="./tracks/Superman.mp4"></audio>
+        <audio src="./tracks/The Story Of Us.mp4"></audio>
+        <audio src="./tracks/Timeless.mp4"></audio>
+        <audio src="./tracks/When Emma Falls in Love.mp4"></audio>
+    </header>
+    <main>
+        <section id="menu">
+            <p>
+                1 Player: click the right song. You have 10 seconds per track to answer, you will be asked first for the name of the track and secondly for the 
+                singer/group name. You get 5 points for every correct answer and lose 5 for every incorrect one.  </p>
+            <div>
+                <article>
+                    <input type="text" placeholder="Nickname Player 1">
+                    <button>1 Player</button>
+                </article>
+                <article>
+                    <input type="text" placeholder="Nickname Player 2">
+                    <button>2 Players</button>
+                </article>
+            </div>
+            <p>2 Players: Player 1 will be able to select the right answer with a mouse/trackpad. Player 2 will use the arrows keys on the keyboard, arrow left: Answer 1, up 2, down 3, right 4. The player who answer correctly first gets the 5 points. If the guess is wrong lose the 5 points and the other player can still answer and get the points. The player with more points wins.  </p>
+        </section>
+        <section id="gameSection">
+            <button class="restart">Restart</button>
+            <div>
+                <article class="scores">Score:</article>
+                <article id="timer">10</article>
+                <article class="scores">Player2 Score:</article>
+            </div>
+            <div id="answers">
+                <article>
+                    <button></button>
+                    <button></button>
+                </article>
+                <article>
+                    <button></button>
+                    <button></button>
+                </article>
+                <button id="nextSong">Next Song</button>
+        </div>
+    </section>
+    <section id="endGame">
+        <h1>Total ///</h1>
+
+        <button class="restart">Play Again!</button>
+
+    </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
