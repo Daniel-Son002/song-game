@@ -3,80 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lemonada&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="#" />
-    <title>Music Quiz</title>
+    <link href="style.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <title>Quiz</title>
 </head>
 <body>
-    <header>
-        <audio src="./tracks/Back To December.mp4"></audio>
-        <audio src="./tracks/Better Than Revenge.mp4"></audio>
-        <audio src="./tracks/Castles Crumbling.mp4"></audio>
-        <audio src="./tracks/Dear John.mp4"></audio>
-        <audio src="./tracks/Electric Touch.mp4"></audio>
-        <audio src="./tracks/Enchanted.mp4"></audio>
-        <audio src="./tracks/Foolish One.mp4"></audio>
-        <audio src="./tracks/Haunted.mp4"></audio>
-        <audio src="./tracks/I Can See You.mp4"></audio>
-        <audio src="./tracks/Innocent.mp4"></audio>
-        <audio src="./tracks/Last Kiss.mp4"></audio>
-        <audio src="./tracks/Long Live.mp4"></audio>
-        <audio src="./tracks/Mean.mp4"></audio>
-        <audio src="./tracks/Mine.mp4"></audio>
-        <audio src="./tracks/Never Grow Up.mp4"></audio>
-        <audio src="./tracks/Ours.mp4"></audio>
-        <audio src="./tracks/Sparks Fly.mp4"></audio>
-        <audio src="./tracks/Speak Now.mp4"></audio>
-        <audio src="./tracks/Superman.mp4"></audio>
-        <audio src="./tracks/The Story Of Us.mp4"></audio>
-        <audio src="./tracks/Timeless.mp4"></audio>
-        <audio src="./tracks/When Emma Falls in Love.mp4"></audio>
-    </header>
-    <main>
-        <section id="menu">
-            <p>
-                1 Player: click the right song. You have 10 seconds per track to answer, you will be asked first for the name of the track and secondly for the 
-                singer/group name. You get 5 points for every correct answer and lose 5 for every incorrect one.  </p>
-            <div>
-                <article>
-                    <input type="text" placeholder="Nickname Player 1">
-                    <button>1 Player</button>
-                </article>
-                <article>
-                    <input type="text" placeholder="Nickname Player 2">
-                    <button>2 Players</button>
-                </article>
-            </div>
-            <p>2 Players: Player 1 will be able to select the right answer with a mouse/trackpad. Player 2 will use the arrows keys on the keyboard, arrow left: Answer 1, up 2, down 3, right 4. The player who answer correctly first gets the 5 points. If the guess is wrong lose the 5 points and the other player can still answer and get the points. The player with more points wins.  </p>
-        </section>
-        <section id="gameSection">
-            <button class="restart">Restart</button>
-            <div>
-                <article class="scores">Score:</article>
-                <article id="timer">10</article>
-                <article class="scores">Player2 Score:</article>
-            </div>
-            <div id="answers">
-                <article>
-                    <button></button>
-                    <button></button>
-                </article>
-                <article>
-                    <button></button>
-                    <button></button>
-                </article>
-                <button id="nextSong">Next Song</button>
+    <header class="header">
+        <div class="header-left">
+          <text class="title">Taylor Swift Lyric Quiz</text>&nbsp;&nbsp;&nbsp;&nbsp;
+          <img class="TS" id="img" src="https://media.tenor.com/GM9w_H-ji1IAAAAM/taylor-swift-no.gif">
         </div>
-    </section>
-    <section id="endGame">
-        <h1>Total ///</h1>
-
-        <button class="restart">Play Again!</button>
-
-    </section>
-    </main>
-    <script src="./script.js"></script>
+    </header>
+    <header>
+        <audio src="./tracks/Back To December.mp3" id="btd"></audio>
+        <audio src="./tracks/Better Than Revenge.mp3" id="btr"></audio>
+        <audio src="./tracks/Castles Crumbling.mp3" id="cc"></audio>
+        <audio src="./tracks/Dear John.mp3" id="dj"></audio>
+        <audio src="./tracks/Electric Touch.mp3" id="et"></audio>
+        <audio src="./tracks/Enchanted.mp3" id="e"></audio>
+        <audio src="./tracks/Foolish One.mp3" id="fo"></audio>
+        <audio src="./tracks/Haunted.mp3" id="h"></audio>
+        <audio src="./tracks/I Can See You.mp3" id="icsy"></audio>
+        <audio src="./tracks/Innocent.mp3" id="i"></audio>
+        <audio src="./tracks/Last Kiss.mp3" id="lk"></audio>
+        <audio src="./tracks/Long Live.mp3" id="ll"></audio>
+        <audio src="./tracks/Mean.mp3" id="mean"></audio>
+        <audio src="./tracks/Mine.mp3" id="mine"></audio>
+        <audio src="./tracks/Never Grow Up.mp3" id="ngu"></audio>
+        <audio src="./tracks/Ours.mp3" id="o"></audio>
+        <audio src="./tracks/Sparks Fly.mp3" id="sf"></audio>
+        <audio src="./tracks/Speak Now.mp3" id="sn"></audio>
+        <audio src="./tracks/Superman.mp3" id="s"></audio>
+        <audio src="./tracks/The Story Of Us.mp3" id="tsou"></audio>
+        <audio src="./tracks/Timeless.mp3" id="t"></audio>
+        <audio src="./tracks/When Emma Falls in Love.mp3" id="wefil"></audio>
+    </header>
+    <div class="container">
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <form autocomplete="off">
+                <input type="string" size=75 class="answer" id="answerField">
+                <input type="submit" class="submit-btn btn" id="submit-btn">
+            </form>
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+        </div>
+    </div>
+    <div id="scoreContainer" class="score">
+        Score: <span id="scoreValue">0</span>
+    </div>
 </body>
 </html>

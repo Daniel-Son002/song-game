@@ -1,234 +1,181 @@
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    font-family: 'Lemonada', cursive;
-  }
-  
-  body {
-    background-image: url("./img/bodyBG.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  
-  body main {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    min-height: 550px;
-    width: 60%;
-    background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./img/mainBG.jpg");
-    margin: 5% auto;
-    border-radius: 15px;
-  }
-  
-  body main button {
-    cursor: pointer;
-  }
-  
-  body main button:focus {
-    outline: none;
-  }
-  
-  body main #menu {
-    width: 100%;
-    min-height: 550px;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    padding: 20px;
-    font-size: 1em;
-    color: whitesmoke;
-    font-weight: bold;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-  }
-  
-  body main #menu div {
-    width: 100%;
-    margin: 5% 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-  }
-  
-  body main #menu div article {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 40%;
-  }
-  
-  body main #menu div article input {
-    height: 40px;
-    width: 60%;
-    font-size: 14px;
-    font-weight: bold;
-    border: 5px double lightblue;
-  }
-  
-  body main #menu div article button {
-    height: 50px;
-    width: 100px;
-    margin: 10px;
-    border-radius: 25px;
-    font-weight: bold;
-    -webkit-transition: 0.6s ease-out;
-    transition: 0.6s ease-out;
-  }
-  
-  body main #menu div article button:hover {
-    background-color: transparent;
-    color: whitesmoke;
-    border: 5px double lightblue;
-  }
-  
-  body main #gameSection {
-    height: 100%;
-    width: 100%;
-    padding: 20px;
-    display: none;
-    font-size: 2em;
-    color: whitesmoke;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  
-  body main #gameSection .restart {
-    background-color: transparent;
-    border: 5px double lightblue;
-    color: whitesmoke;
-    border-radius: 15px;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 5px;
-    display: none;
-    position: absolute;
-  }
-  
-  body main #gameSection div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 100px;
-    width: 100%;
-  }
-  
-  body main #gameSection #answers {
-    min-height: 400px;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    width: 100%;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    gap: 10%;
-  }
-  
-  body main #gameSection #answers article {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-  }
-  
-  body main #gameSection #answers article button {
-    min-height: 100px;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    width: 200px;
-    font-size: 0.7em;
-    background-color: transparent;
-    border: 5px double lightblue;
-    color: whitesmoke;
-    border-radius: 15px;
-    word-wrap: break-word;
-  }
-  
-  body main #gameSection #answers #nextSong {
-    height: 70px;
-    width: 200px;
-    display: none;
-    font-size: 0.7em;
-    background-color: transparent;
-    border: 5px double lightblue;
-    color: whitesmoke;
-    border-radius: 15px;
-  }
-  
-  body main #endGame {
-    display: none;
-    text-align: center;
-    padding: 20px;
-    font-size: 2em;
-    color: whitesmoke;
-  }
-  
-  body main #endGame button {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: transparent;
-    border: 5px double lightblue;
-    color: whitesmoke;
-    border-radius: 25px;
-  }
-  
-  @media only screen and (max-width: 600px) {
-    body {
-      height: 100vh;
-    }
-    body main {
-      width: 100%;
-    }
-    body main #gameSection .restart {
-      position: unset;
-    }
-    body main #answers article {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-    }
-  }
-  /*# sourceMappingURL=style.css.map */
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+
+:root {
+  --hue-neutral: 276.9;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+
+
+body {
+  --hue: var(--hue-neutral);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 100%, 20%);
+}
+
+body.correct {
+  --hue: var(--hue-correct);
+}
+
+body.wrong {
+  --hue: var(--hue-wrong)
+}
+
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px 2px;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+
+.btn {
+  --hue: var(--hue-neutral);
+  border: 1px solid hsl(var(--hue), 100%, 30%);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
+}
+
+.btn:hover {
+  border-color: black
+}
+
+.btn.correct {
+  --hue: var(--hue-correct);
+  color: black;
+}
+
+.btn.wrong {
+  --hue: var(--hue-wrong);
+}
+
+.correct-answer {
+  background-color: #c8e6c9; /* Light green */
+}
+
+.wrong-answer {
+background-color: #ffcdd2; /* Light red */
+}
+
+.start-btn, .next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px, 20px;
+}
+
+.next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px, 20px;
+  margin-top: 10px
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: .5rem;
+  padding: .5rem;
+  border-right: 2px solid hsl(50.6, 100%, 50%);
+  color: white
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px, 20px;
+}
+
+.score {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 10px;
+}
+
+.answer {
+  position: inherit;
+  padding: 7px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  margin-left: 10px;
+}
+
+.song-submit-btn {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.container hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 2px solid hsl(50.6, 100%, 50%);
+}
+
+.choices-table {
+  display: table;
+  padding-top: 10px;
+  width: 50%;
+}
+
+.left-column, .right-column, .center-column{
+  display: table-cell;
+  vertical-align: top;
+  padding: 0;
+}
+
+.left-column, .center-column{
+  border-right: none;
+}
+
+.choices-table label {
+  display: block;
+  margin-bottom: 0 px;
+}
+
