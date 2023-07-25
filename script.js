@@ -184,6 +184,10 @@ var questions = [
         correctAnswer: 'ready for it'
     },
     {
+        question: 'ti',
+        correctAnswer: 'tolerate it'
+    },
+    {
         question: 'cp',
         correctAnswer: 'champagne problems'
     },
