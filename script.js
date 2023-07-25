@@ -19,7 +19,8 @@ var audios = ["./tracklist/Cruel Summer.mp3", "./tracklist/Fearless.mp3", "./tra
 "./tracklist/Tis The Damn Season.mp3", "./tracklist/Love Story", "./tracklist/You Belong With Me.mp3", "./tracklist/Dont Blame Me.mp3",
 "./tracklist/Delicate.mp3", "./tracklist/Ready For It.mp3", "./tracklist/Tolerate It.mp3", "./tracklist/Champagne Problems.mp3", 
 "./tracklist/Majorie.mp3", "./tracks/Enchanted.mp3", "./tracklist/Betty.mp3", "./tracklist/The 1.mp3", "./tracklist/All Too Well.mp3", 
-"./tracklist/I Knew You Were Trouble.mp3", "./tracklist/We Are Never Getting Back Together.mp3", "./tracklist/22.mp3", "./tracklist/Look What You Made Me Do.mp3"];
+"./tracklist/I Knew You Were Trouble.mp3", "./tracklist/We Are Never Getting Back Together.mp3", "./tracklist/22.mp3", 
+"./tracklist/Look What You Made Me Do.mp3"];
 
 // var questions = [
 //     {
@@ -312,7 +313,6 @@ function showQuestion(question) {
     console.log(question)
     console.log(question.question)
     console.log(audio)
-    // audio.play();
     setTimeout(function(){
         audio.play();
 
