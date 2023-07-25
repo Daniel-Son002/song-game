@@ -309,6 +309,8 @@ function setNextQuestion() {
 function showQuestion(question) {
 
     var audio = document.getElementById(questions.question);
+    console.log(question)
+    console.log(audio)
     // audio.play();
     setTimeout(function(){
         audio.play();
