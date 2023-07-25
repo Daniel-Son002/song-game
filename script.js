@@ -11,12 +11,13 @@
 
 var titles = ['Cruel Summer', 'Fearless', 'Lover', 'The Archer', 'Miss Americana & the Heartbreak Prince', 'The Man', 'You Need to Calm Down',
                 'Willow', 'Tis The Damn Season', 'Love Story', 'You Belong With Me', 'Dont Blame Me', 'Delicate', 'Ready For It', 'Tolerate It', 
-                'Champagne Problems', 'Majorie']
+                'Champagne Problems', 'Majorie'];
 
 var audios = ["./tracklist/Cruel Summer.mp3", "./tracklist/Fearless.mp3", "./tracklist/Lover.mp3", "./tracklist/The Archer.mp3", 
 "./tracklist/The Hearbreak Prince.mp3" , "./tracklist/The Man.mp3", "./tracklist/You Need To Calm Down.mp3", "./tracklist/Willow.mp3",
 "./tracklist/Tis The Damn Season.mp3", "./tracklist/Love Story", "./tracklist/You Belong With Me.mp3", "./tracklist/Dont Blame Me.mp3",
-"./tracklist/Delicate.mp3", "./tracklist/Ready For It.mp3", "./tracklist/Tolerate It.mp3", "./tracklist/Champagne Problems.mp3", "./tracklist/Majorie.mp3"]
+"./tracklist/Delicate.mp3", "./tracklist/Ready For It.mp3", "./tracklist/Tolerate It.mp3", "./tracklist/Champagne Problems.mp3", 
+"./tracklist/Majorie.mp3"];
 
 // var questions = [
 //     {
@@ -188,7 +189,7 @@ var questions = [
         question: 'm',
         correctAnswer: 'majorie'
     }
-]
+];
 
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
