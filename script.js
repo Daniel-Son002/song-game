@@ -123,7 +123,7 @@ var audios = ["./tracklist/Cruel Summer.mp3", "./tracklist/Fearless.mp3", "./tra
 //     // ... add other questions with audio elements
 // ];
 
-var question = [
+var questions = [
     {
         question: 'cs',
         correctAnswer: 'cruel summer'
