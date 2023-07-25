@@ -140,7 +140,7 @@ var questions = [
         correctAnswer: 'lover'
     },
     {
-        questino: 'ta',
+        question: 'ta',
         correctAnswer: 'the archer'
     },
     {
@@ -238,9 +238,9 @@ const photo = document.getElementsByClassName("TS");
 const scoreValueElement = document.getElementById("scoreValue");
 const submitButton = document.getElementById("submit-btn");
 const answerField = document.getElementById("answerField");
-const songContainerElement = document.getElementById("song-container");
-const choicesContainer = document.getElementById("choices");
-const line = document.getElementById("line");
+// const songContainerElement = document.getElementById("song-container");
+// const choicesContainer = document.getElementById("choices");
+// const line = document.getElementById("line");
 
 let selectedChoices = [];
 
@@ -308,13 +308,14 @@ function setNextQuestion() {
 
 function showQuestion(question) {
 
-    var audio = document.getElementById(questions.question);
+    var audio = document.getElementById(question.question);
     console.log(question)
+    console.log(question.question)
     console.log(audio)
     // audio.play();
     setTimeout(function(){
         audio.play();
-    
+
         setTimeout(function(){
             audio.pause();
             audio.currentTime = 0;
@@ -357,11 +358,12 @@ function submitAnswer(event) {
         const end = score;
         questionElement.innerText = `You got ${end}/${shuffledQuestions.length}`;
         submitButton.classList.add("hide")
-        songContainerElement.classList.remove("hide");
-        line.classList.remove("hide");
+        // songContainerElement.classList.remove("hide");
+        // line.classList.remove("hide");
         startButton.innerText = "Restart";
         startButton.classList.remove("hide");
         startButton.addEventListener("click", () => {
+        questionElement.classList.add("hide")
         score = 0;
         scoreValueElement.innerText = score
         });
