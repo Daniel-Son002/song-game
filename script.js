@@ -1,104 +1,109 @@
-var titles = ['Back To December', 'Better Than Revenge', 'Castles Crumbling', 'Dear John', 'Electric Touch', 'Enchanted', 'Foolish One', 
-              'Haunted', 'I Can See You', 'Innocent', 'Last Kiss', 'Long Live', 'Mean', 'Mine', 'Never Grow Up', 'Ours', 'Sparks Fly', 'Speak Now', 
-              'Superman', 'The Story Of Us', 'Timeless', 'When Emma Falls in Love'];
+// var titles = ['Back To December', 'Better Than Revenge', 'Castles Crumbling', 'Dear John', 'Electric Touch', 'Enchanted', 'Foolish One', 
+//               'Haunted', 'I Can See You', 'Innocent', 'Last Kiss', 'Long Live', 'Mean', 'Mine', 'Never Grow Up', 'Ours', 'Sparks Fly', 'Speak Now', 
+//               'Superman', 'The Story Of Us', 'Timeless', 'When Emma Falls in Love'];
 
 
-var audios = ['tracks/Back To December.mp3', 'tracks/Better Than Revenge.mp3', 'tracks/Castles Crumbling.mp3', 'tracks/Dear John.mp3', 
-                'tracks/Electric Touch.mp3', 'tracks/Enchanted.mp3', 'tracks/Foolish One.mp3', 'tracks/Haunted.mp3', 'tracks/I Can See You.mp3', 
-                'tracks/Innocent.mp3', 'tracks/Last Kiss.mp3', 'tracks/Long Live.mp3', 'tracks/Mean.mp3', 'tracks/Mine.mp3', 'tracks/Never Grow Up.mp3',
-                'tracks/Ours.mp3', 'tracks/Sparks Fly.mp3', 'tracks/Speak Now.mp3', 'tracks/Superman.mp3', 'tracks/The Story Of Us.mp3', 'tracks/Timeless.mp3',
-                'tracks/When Emma Falls in Love.mp3'];
+// var audios = ['tracks/Back To December.mp3', 'tracks/Better Than Revenge.mp3', 'tracks/Castles Crumbling.mp3', 'tracks/Dear John.mp3', 
+//                 'tracks/Electric Touch.mp3', 'tracks/Enchanted.mp3', 'tracks/Foolish One.mp3', 'tracks/Haunted.mp3', 'tracks/I Can See You.mp3', 
+//                 'tracks/Innocent.mp3', 'tracks/Last Kiss.mp3', 'tracks/Long Live.mp3', 'tracks/Mean.mp3', 'tracks/Mine.mp3', 'tracks/Never Grow Up.mp3',
+//                 'tracks/Ours.mp3', 'tracks/Sparks Fly.mp3', 'tracks/Speak Now.mp3', 'tracks/Superman.mp3', 'tracks/The Story Of Us.mp3', 'tracks/Timeless.mp3',
+//                 'tracks/When Emma Falls in Love.mp3'];
 
-var questions = [
-    {
-        question: 'btd',
-        correctAnswer: 'back to december'
-    },
-    {
-        question: 'btr',
-        correctAnswer: 'better than revenge'
-    },
-    {
-        question: 'cc',
-        correctAnswer: 'castles crumbling'
-    },
-    {
-        question: 'dj',
-        correctAnswer: 'dear john'
-    },
-    {
-        question: 'et',
-        correctAnswer: 'electric touch'
-    },
-    {
-        question: 'e',
-        correctAnswer: 'enchanted'
-    },
-    {
-        question: 'fo',
-        correctAnswer: 'foolish one'
-    },
-    {
-        question: 'h',
-        correctAnswer: 'haunted'
-    },
-    {
-        question: 'icsy', 
-        correctAnswer: 'i can see you'
-    },
-    {
-        question: 'i',
-        correctAnswer: 'innocent'
-    },
-    {
-        question: 'lk',
-        correctAnswer: 'last kiss'
-    },
-    {
-        question: 'll',
-        correctAnswer: 'long live'
-    },
-    {
-        question: 'mean', 
-        correctAnswer: 'mean'
-    },
-    {
-        question: 'mine',
-        correctAnswer: 'mine'
-    },
-    {
-        question: 'ngu',
-        correctAnswer: 'never grow up'
-    },
-    {
-        question: 'o',
-        correctAnswer: 'ours'
-    },
-    {
-        question: 'sf', 
-        correctAnswer: 'sparks fly'
-    },
-    {
-        question: 'sn',
-        correctAnswer: 'speak now'
-    },
-    {
-        question: 's',
-        correctAnswer: 'superman'
-    },
-    {
-        question: 'tsou',
-        correctAnswer: 'the story of us'
-    },
-    {
-        question: 't',
-        correctAnswer: 'timeless'
-    },
-    {
-        question: 'wefil',
-        correctAnswer: 'when emma falls in love'
-    }
-];
+var titles = ['Cruel Summer', 'Fearless', 'Lover', 'The Archer', 'Miss Americana & the Heartbreak Prince', 'The Man', 'You Need to Calm Down' ]
+
+var audios = ["./tracklist/Cruel Summer.mp3", "./tracklist/Fearless.mp3", "./tracklist/Lover.mp3", "./tracklist/The Archer.mp3", 
+"./tracklist/The Hearbreak Prince.mp3" , "./tracklist/The Man.mp3", "./tracklist/You Need To Calm Down.mp3"]
+
+// var questions = [
+//     {
+//         question: 'btd',
+//         correctAnswer: 'back to december'
+//     },
+//     {
+//         question: 'btr',
+//         correctAnswer: 'better than revenge'
+//     },
+//     {
+//         question: 'cc',
+//         correctAnswer: 'castles crumbling'
+//     },
+//     {
+//         question: 'dj',
+//         correctAnswer: 'dear john'
+//     },
+//     {
+//         question: 'et',
+//         correctAnswer: 'electric touch'
+//     },
+//     {
+//         question: 'e',
+//         correctAnswer: 'enchanted'
+//     },
+//     {
+//         question: 'fo',
+//         correctAnswer: 'foolish one'
+//     },
+//     {
+//         question: 'h',
+//         correctAnswer: 'haunted'
+//     },
+//     {
+//         question: 'icsy', 
+//         correctAnswer: 'i can see you'
+//     },
+//     {
+//         question: 'i',
+//         correctAnswer: 'innocent'
+//     },
+//     {
+//         question: 'lk',
+//         correctAnswer: 'last kiss'
+//     },
+//     {
+//         question: 'll',
+//         correctAnswer: 'long live'
+//     },
+//     {
+//         question: 'mean', 
+//         correctAnswer: 'mean'
+//     },
+//     {
+//         question: 'mine',
+//         correctAnswer: 'mine'
+//     },
+//     {
+//         question: 'ngu',
+//         correctAnswer: 'never grow up'
+//     },
+//     {
+//         question: 'o',
+//         correctAnswer: 'ours'
+//     },
+//     {
+//         question: 'sf', 
+//         correctAnswer: 'sparks fly'
+//     },
+//     {
+//         question: 'sn',
+//         correctAnswer: 'speak now'
+//     },
+//     {
+//         question: 's',
+//         correctAnswer: 'superman'
+//     },
+//     {
+//         question: 'tsou',
+//         correctAnswer: 'the story of us'
+//     },
+//     {
+//         question: 't',
+//         correctAnswer: 'timeless'
+//     },
+//     {
+//         question: 'wefil',
+//         correctAnswer: 'when emma falls in love'
+//     }
+// ];
 
 // var questions = [
 //     {
@@ -114,6 +119,36 @@ var questions = [
 //     // ... add other questions with audio elements
 // ];
 
+var question = [
+    {
+        question: 'cs',
+        correctAnswer: 'cruel summer'
+    },
+    {
+        question: 'f',
+        correctAnswer: 'fearless'
+    },
+    {
+        question: 'l',
+        correctAnswer: 'lover'
+    },
+    {
+        questino: 'ta',
+        correctAnswer: 'the archer'
+    },
+    {
+        question: 'thp',
+        correctAnswer: 'miss americana and the heartbreak prince'
+    },
+    {
+        question: 'tm',
+        correctAnswer: 'the man'
+    },
+    {
+        question: 'yntcd',
+        correctAnswer: 'you need to calm down'
+    }
+]
 
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
