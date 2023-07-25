@@ -195,6 +195,34 @@ var questions = [
         question: 'e',
         correctAnswer: 'enchanted'
     },
+    {
+        question: 'b',
+        correctAnswer: 'betty'
+    },
+    {
+        question: 't1',
+        correctAnswer: 'the 1'
+    },
+    {
+        question: 'atw',
+        correctAnswer: 'all too well'
+    },
+    {
+        question: 'ikywt',
+        correctAnswer: 'i knew you were trouble'
+    },
+    {
+        question: 'wangbt',
+        correctAnswer: 'we are never ever getting back together'
+    },
+    {
+        question: '22',
+        correctAnswer: '22'
+    },
+    {
+        question: 'lwymmd',
+        correctAnswer: 'look what you made me do'
+    }
 
 ];
 
