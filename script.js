@@ -129,19 +129,19 @@ var audios = ["./tracklist/Cruel Summer.mp3", "./tracklist/Fearless.mp3", "./tra
 
 var questions = [
     {
-        question: 'cs',
+        question: 'cruel summer',
         correctAnswer: 'cruel summer'
     },
     {
-        question: 'f',
+        question: 'fearless',
         correctAnswer: 'fearless'
     },
     {
-        question: 'l',
+        question: 'lover',
         correctAnswer: 'lover'
     },
     {
-        question: 'ta',
+        question: 'the archer',
         correctAnswer: 'the archer'
     },
     {
@@ -149,7 +149,7 @@ var questions = [
         correctAnswer: 'miss americana and the heartbreak prince'
     },
     {
-        question: 'tm',
+        question: 'the man',
         correctAnswer: 'the man'
     },
     {
@@ -157,7 +157,7 @@ var questions = [
         correctAnswer: 'you need to calm down'
     },
     {
-        question: 'w',
+        question: 'willow',
         correctAnswer: 'willow'
     },
     {
@@ -165,7 +165,7 @@ var questions = [
         correctAnswer: 'tis the damn season'
     },
     {
-        question: 'ls',
+        question: 'love story',
         correctAnswer: 'love story'
     },
     {
@@ -177,7 +177,7 @@ var questions = [
         correctAnswer: 'dont blame me'
     },
     {
-        question: 'd',
+        question: 'delicate',
         correctAnswer: 'delicate'
     },
     {
@@ -185,27 +185,27 @@ var questions = [
         correctAnswer: 'ready for it'
     },
     {
-        question: 'ti',
+        question: 'tolerate it',
         correctAnswer: 'tolerate it'
     },
     {
-        question: 'cp',
+        question: 'champagne problems',
         correctAnswer: 'champagne problems'
     },
     {
-        question: 'm',
+        question: 'majorie',
         correctAnswer: 'majorie'
     },
     {
-        question: 'e',
+        question: 'enchanted',
         correctAnswer: 'enchanted'
     },
     {
-        question: 'b',
+        question: 'betty',
         correctAnswer: 'betty'
     },
     {
-        question: 't1',
+        question: 'the 1',
         correctAnswer: 'the 1'
     },
     {
@@ -227,6 +227,82 @@ var questions = [
     {
         question: 'lwymmd',
         correctAnswer: 'look what you made me do'
+    },
+    {
+        question: 'karma',
+        correctAnswer: 'karma'
+    },
+    {
+        question: 'mastermind',
+        correctAnswer: 'mastermind'
+    },
+    {
+        question: 'bejeweled',
+        correctAnswer: 'bejeweled'
+    },
+    {
+        question: 'vigilante shit',
+        correctAnswer: 'vigilante shit'
+    },
+    {
+        question: 'midnight rain',
+        correctAnswer: 'midnight rain'
+    },
+    {
+        question: 'antihero',
+        correctAnswer: 'anti-hero'
+    },
+    {
+        question: 'lavender haze',
+        correctAnswer: 'lavender haze'
+    },
+    {
+        question: 'tim mcgraw',
+        correctAnswer: 'tim mcgraw'
+    },
+    {
+        question: 'bad blood',
+        correctAnswer: 'bad blood'
+    },
+    {
+        question: 'mirrorball',
+        correctAnswer: 'mirrorball'
+    },
+    {
+        question: 'wildest dreams',
+        correctAnswer: 'wildest dreams'
+    },
+    {
+        question: 'sio',
+        correctAnswer: 'shake it off'
+    },
+    {
+        question: 'blank space',
+        correctAnswer: 'blank space'
+    },
+    {
+        question: 'style',
+        correctAnswer: 'style'
+    },
+    {
+        question: 'cardigan',
+        correctAnswer: 'cardigan'
+    },
+    {
+        question: 'mtr',
+        correctAnswer: 'my tears riccochet'
+    },
+    {
+        question: 'illicit affairs',
+        correctAnswer: 'illicit affairs'
+    },
+    {
+        question: 'august',
+        correctAnswer: 'august'
+    },
+    {
+        question: 'tlgad',
+        correctAnswer: 'the last great american dynasty'
     }
 
 ];
@@ -239,9 +315,9 @@ const photo = document.getElementsByClassName("TS");
 const scoreValueElement = document.getElementById("scoreValue");
 const submitButton = document.getElementById("submit-btn");
 const answerField = document.getElementById("answerField");
-// const songContainerElement = document.getElementById("song-container");
-// const choicesContainer = document.getElementById("choices");
-// const line = document.getElementById("line");
+const levelContainerElement = document.getElementById("level-container");
+const choicesContainer = document.getElementById("choices");
+const line = document.getElementById("line");
 
 let selectedChoices = [];
 
@@ -281,22 +357,43 @@ function getRandomNumber(minimum, maximum) {
     return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
 }
 
-function startGame() {
-    startButton.classList.add("hide");
-
-    // selectedChoices = Array.from(choicesContainer.querySelectorAll('input[type="checkbox"]:checked')).map(input => input.value);
-
-    // let newQuestions = [];
-    // selectedChoices.forEach(element => {
-    //     newQuestions = newQuestions.concat([element]);
-    // });
-
-    shuffledQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex = 0
-    questionContainerElement.classList.remove("hide");
-    setNextQuestion();
+function defineLevel() {
+    var ele = document.getElementsByName('choice');
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked)
+            return ele[i].value;
+    }
 }
 
+var obj = {
+    "easy": [12000, 1000],
+    "medium": [4000, 1000],
+    "hard": [1000, 1000],
+    "...": [500, 1000]
+};
+
+
+var level, fst, snd;
+
+function startGame() {
+    startButton.classList.add("hide");
+    var selectedLevel = defineLevel();
+    console.log("Selected Level:", selectedLevel);
+    level = obj[selectedLevel];
+    console.log("Level:", level);
+    fst = level[0];
+    snd = level[1];
+    console.log("fst:", fst, "snd:", snd);
+    shuffledQuestions = questions.sort(() => Math.random() - .5);
+    currentQuestionIndex = 0;
+
+    // Hide the level container and display the question container
+    questionContainerElement.classList.remove("hide");
+    line.classList.add("hide")
+    levelContainerElement.classList.add("hide");
+
+    setNextQuestion();
+}
 
 function setNextQuestion() {
     resetState();
@@ -308,19 +405,16 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
-
+    questionElement.innerText = `Question ${currentQuestionIndex}:`;
     var audio = document.getElementById(question.question);
-    console.log(question)
-    console.log(question.question)
-    console.log(audio)
     setTimeout(function(){
         audio.play();
 
         setTimeout(function(){
             audio.pause();
             audio.currentTime = 0;
-        }, 2000);
-    }, 1000);
+        }, fst);
+    }, snd);
 }
 
 function resetState() {
@@ -358,12 +452,11 @@ function submitAnswer(event) {
         const end = score;
         questionElement.innerText = `You got ${end}/${shuffledQuestions.length}`;
         submitButton.classList.add("hide")
-        // songContainerElement.classList.remove("hide");
-        // line.classList.remove("hide");
+        levelContainerElement.classList.remove("hide");
+        line.classList.remove("hide");
         startButton.innerText = "Restart";
         startButton.classList.remove("hide");
         startButton.addEventListener("click", () => {
-        questionElement.classList.add("hide")
         score = 0;
         scoreValueElement.innerText = score
         });

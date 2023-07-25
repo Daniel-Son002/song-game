@@ -145,37 +145,47 @@ background-color: #ffcdd2; /* Light red */
   margin-left: 10px;
 }
 
-.song-submit-btn {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 .container hr {
   margin: 20px 0;
   border: none;
   border-top: 2px solid hsl(50.6, 100%, 50%);
 }
 
+.sub-container {
+  margin: 20px 0;
+  border: none;
+}
+
 .choices-table {
   display: table;
-  padding-top: 10px;
   width: 50%;
 }
 
-.left-column, .right-column, .center-column{
+.left-column{
   display: table-cell;
   vertical-align: top;
   padding: 0;
 }
 
-.left-column, .center-column{
-  border-right: none;
-}
-
 .choices-table label {
   display: block;
   margin-bottom: 0 px;
+}
+
+#level-container .choices-table {
+  padding-top: 10px;
+  width: 50%
+}
+
+#line {
+  margin: 20px 0;
+  border: none;
+  border-top: 2px solid hsl(50.6, 100%, 50%);
+  height: 1px;
+}
+
+
+.hide {
+  display: none;
 }
 
