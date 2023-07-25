@@ -11,13 +11,15 @@
 
 var titles = ['Cruel Summer', 'Fearless', 'Lover', 'The Archer', 'Miss Americana & the Heartbreak Prince', 'The Man', 'You Need to Calm Down',
                 'Willow', 'Tis The Damn Season', 'Love Story', 'You Belong With Me', 'Dont Blame Me', 'Delicate', 'Ready For It', 'Tolerate It', 
-                'Champagne Problems', 'Majorie'];
+                'Champagne Problems', 'Majorie', 'Enchanted', 'Betty', 'The 1', 'All Too Well', 'I Knew You Were Trouble', 'We Are Never Getting Back Together',
+            '22', 'Look What You Made Me Do'];
 
 var audios = ["./tracklist/Cruel Summer.mp3", "./tracklist/Fearless.mp3", "./tracklist/Lover.mp3", "./tracklist/The Archer.mp3", 
 "./tracklist/The Hearbreak Prince.mp3" , "./tracklist/The Man.mp3", "./tracklist/You Need To Calm Down.mp3", "./tracklist/Willow.mp3",
 "./tracklist/Tis The Damn Season.mp3", "./tracklist/Love Story", "./tracklist/You Belong With Me.mp3", "./tracklist/Dont Blame Me.mp3",
 "./tracklist/Delicate.mp3", "./tracklist/Ready For It.mp3", "./tracklist/Tolerate It.mp3", "./tracklist/Champagne Problems.mp3", 
-"./tracklist/Majorie.mp3"];
+"./tracklist/Majorie.mp3", "./tracks/Enchanted.mp3", "./tracklist/Betty.mp3", "./tracklist/The 1.mp3", "./tracklist/All Too Well.mp3", 
+"./tracklist/I Knew You Were Trouble.mp3", "./tracklist/We Are Never Getting Back Together.mp3", "./tracklist/22.mp3", "./tracklist/Look What You Made Me Do.mp3"];
 
 // var questions = [
 //     {
@@ -188,7 +190,12 @@ var questions = [
     {
         question: 'm',
         correctAnswer: 'majorie'
-    }
+    },
+    {
+        question: 'e',
+        correctAnswer: 'enchanted'
+    },
+
 ];
 
 const startButton = document.getElementById("start-btn");
