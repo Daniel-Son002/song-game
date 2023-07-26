@@ -160,10 +160,10 @@ var questions = [
         question: 'willow',
         correctAnswer: 'willow'
     },
-    {
-        question: 'ttds',
-        correctAnswer: 'tis the damn season'
-    },
+    // {
+    //     question: 'ttds',
+    //     correctAnswer: 'tis the damn season'
+    // },
     {
         question: 'love story',
         correctAnswer: 'love story'
@@ -342,6 +342,7 @@ var happy = [
 var score = 0;
 
 let shuffledQuestions, currentQuestionIndex;
+let audio = null;
 
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
@@ -405,8 +406,8 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
-    questionElement.innerText = `Question ${currentQuestionIndex}:`;
-    var audio = document.getElementById(question.question);
+    questionElement.innerText = `Question ${currentQuestionIndex + 1}:`;
+    audio = document.getElementById(question.question);
     setTimeout(function(){
         audio.play();
 
@@ -428,23 +429,36 @@ function resetState() {
 function submitAnswer(event) {
     event.preventDefault();
 
-    let input = answerField.value.toLowerCase();
+    let input = answerField.value.toLowerCase().replace(/\s+/g, '').replace(/[^\w\s]/gi, '');
     const correctAnswer = shuffledQuestions[currentQuestionIndex].correctAnswer;
-    setStatusClass(document.body, input === correctAnswer);
+    const ans = correctAnswer.split(" ");
 
-    if (input === correctAnswer) {
+    const formatted_ans = ans.map((word) => { 
+            return word[0].toUpperCase() + word.substring(1); 
+        }).join(" ");    
+
+    setStatusClass(document.body, input === correctAnswer.toLowerCase().replace(/\s+/g, '').replace(/[^\w\s]/gi, ''));
+
+    if (input === correctAnswer.toLowerCase().replace(/\s+/g, '').replace(/[^\w\s]/gi, '')) {
         changeImage(happy[getRandomNumber(0, 6)]);
         answerField.classList.add("correct-answer");
+        answerField.value = formatted_ans;
         score++;
         scoreValueElement.innerText = score.toString();
     } else {
         alert("stoopid be better");
         answerField.classList.add("wrong-answer");
-        answerField.value = correctAnswer;
+        answerField.value = formatted_ans;
         changeImage(sad[getRandomNumber(0, 4)]);
     }
 
     submitButton.disabled = true;
+
+    if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+        audio = null;
+    }
 
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove("hide");
