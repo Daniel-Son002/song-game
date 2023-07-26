@@ -318,6 +318,7 @@ const answerField = document.getElementById("answerField");
 const levelContainerElement = document.getElementById("level-container");
 const choicesContainer = document.getElementById("choices");
 const line = document.getElementById("line");
+const choiceRadios = document.querySelectorAll('.choice-radio');
 
 let selectedChoices = [];
 
@@ -343,6 +344,16 @@ var score = 0;
 
 let shuffledQuestions, currentQuestionIndex;
 let audio = null;
+
+
+startButton.disabled = true;
+
+choiceRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    const anySelected = Array.from(choiceRadios).some(radio => radio.checked);
+    startButton.disabled = !anySelected;
+  });
+});
 
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
