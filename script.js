@@ -372,10 +372,17 @@ function getRandomNumber(minimum, maximum) {
 function defineLevel() {
     var ele = document.getElementsByName('choice');
     for (i = 0; i < ele.length; i++) {
-        if (ele[i].checked)
-            return ele[i].value;
+        if (ele[i].checked) {
+            if (ele[i].value === "custom") {
+                const customPlayDuration = parseInt(document.getElementById('custom-play-duration').value);
+                return ["custom", customPlayDuration];
+            } else {
+                return [ele[i].value];
+            }
+        }
     }
 }
+
 
 var obj = {
     "easy": [12000, 1000],
@@ -385,17 +392,23 @@ var obj = {
 };
 
 
-var level, fst, snd;
+var level, fst, snd = 1000;
 
 function startGame() {
     startButton.classList.add("hide");
     var selectedLevel = defineLevel();
     console.log("Selected Level:", selectedLevel);
-    level = obj[selectedLevel];
-    console.log("Level:", level);
-    fst = level[0];
-    snd = level[1];
-    console.log("fst:", fst, "snd:", snd);
+    if (selectedLevel[0] === "custom") {
+        level = selectedLevel;
+        console.log("Level:", level);
+        fst = level[1];
+        console.log("fst:", fst, "snd:", snd);
+    } else {
+        level = obj[selectedLevel[0]];
+        console.log("Level:", level);
+        fst = level[0];
+        console.log("fst:", fst, "snd:", snd);
+    }
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
 
