@@ -319,6 +319,7 @@ const levelContainerElement = document.getElementById("level-container");
 const choicesContainer = document.getElementById("choices");
 const line = document.getElementById("line");
 const choiceRadios = document.querySelectorAll('.choice-radio');
+const hearMoreButton = document.getElementById("hear-more-btn");
 
 let selectedChoices = [];
 
@@ -341,6 +342,7 @@ var happy = [
 ];
 
 var score = 0;
+var totalPoints = 0
 
 let shuffledQuestions, currentQuestionIndex;
 let audio = null;
@@ -356,6 +358,30 @@ choiceRadios.forEach(radio => {
 });
 
 startButton.addEventListener("click", startGame);
+hearMoreButton.addEventListener("click", hearMore);
+
+function hearMore() {
+    if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+        hearMoreButton.classList.add("hide");
+    }
+}
+
+function handleAudioEnded() {
+    hearMoreButton.classList.remove("hide");
+    audio.removeEventListener("timeupdate", handleTimeUpdate);
+    audio = null;
+}
+
+function handleTimeUpdate() {
+    if (audio && audio.paused) {
+        hearMoreButton.classList.remove("hide"); // Show the "Hear More" button when audio is paused
+    } else {
+        hearMoreButton.classList.add("hide"); // Hide the "Hear More" button when audio is playing
+    }
+}
+
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++;
     setNextQuestion();
@@ -396,23 +422,18 @@ var level, fst, snd = 1000;
 
 function startGame() {
     startButton.classList.add("hide");
+    submitButton.classList.remove("hide")
     var selectedLevel = defineLevel();
-    console.log("Selected Level:", selectedLevel);
     if (selectedLevel[0] === "custom") {
         level = selectedLevel;
-        console.log("Level:", level);
         fst = level[1];
-        console.log("fst:", fst, "snd:", snd);
     } else {
         level = obj[selectedLevel[0]];
-        console.log("Level:", level);
         fst = level[0];
-        console.log("fst:", fst, "snd:", snd);
     }
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
 
-    // Hide the level container and display the question container
     questionContainerElement.classList.remove("hide");
     line.classList.add("hide")
     levelContainerElement.classList.add("hide");
@@ -430,13 +451,15 @@ function setNextQuestion() {
     answerField.classList.remove("correct-answer", "wrong-answer");
     submitButton.disabled = false;
 
-    startTime = new Date().getTime();
-    maxTime = 15000;
+    shuffledQuestions[currentQuestionIndex].startTime = new Date().getTime();
 }
 
 function showQuestion(question) {
     questionElement.innerText = `Question ${currentQuestionIndex + 1}:`;
     audio = document.getElementById(question.question);
+    audio.addEventListener("ended", handleAudioEnded);
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+
     setTimeout(function(){
         audio.play();
 
@@ -462,21 +485,10 @@ function submitAnswer(event) {
     const correctAnswer = shuffledQuestions[currentQuestionIndex].correctAnswer;
     const ans = correctAnswer.split(" ");
 
+    const question = shuffledQuestions[currentQuestionIndex];
     const endTime = new Date().getTime();
-    const timeTaken = endTime - startTime;
-    let bonusPoints = 0;
-    if (input === correctAnswer.toLowerCase().replace(/\s+/g, '').replace(/[^\w\s]/gi, '')) {
-        if (timeTaken <= maxTime * 0.2) { // Answered within the first 20% of the max time
-            bonusPoints = 3;
-        } else if (timeTaken <= maxTime * 0.5) { // Answered within the first 50% of the max time
-            bonusPoints = 2;
-        } else if (timeTaken <= maxTime * 0.8) { // Answered within the first 80% of the max time
-            bonusPoints = 1;
-        }
-    }
-
-    const basePoints = input === correctAnswer.toLowerCase().replace(/\s+/g, '').replace(/[^\w\s]/gi, '') ? 1 : 0;
-    const totalPoints = basePoints + bonusPoints;
+    const timeTaken = endTime - question.startTime;
+    // const basePoints = input === correctAnswer.toLowerCase().replace(/\s+/g, '').replace(/[^\w\s]/gi, '') ? 1000 : 0;
 
     const formatted_ans = ans.map((word) => { 
             return word[0].toUpperCase() + word.substring(1); 
@@ -485,6 +497,11 @@ function submitAnswer(event) {
     setStatusClass(document.body, input === correctAnswer.toLowerCase().replace(/\s+/g, '').replace(/[^\w\s]/gi, ''));
 
     if (input === correctAnswer.toLowerCase().replace(/\s+/g, '').replace(/[^\w\s]/gi, '')) {
+
+        const bonusPoints = Math.max(10000 - timeTaken, 0);
+        totalPoints += 1000 + bonusPoints;
+        document.getElementById("totalPointsValue").innerText = totalPoints.toString();
+        
         changeImage(happy[getRandomNumber(0, 6)]);
         answerField.classList.add("correct-answer");
         answerField.value = formatted_ans;
@@ -505,15 +522,14 @@ function submitAnswer(event) {
         audio = null;
     }
 
-    startTime = 0;
-    maxTime = 0;
-
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove("hide");
     } else {
         const end = score;
-        questionElement.innerText = `You got ${end}/${shuffledQuestions.length}`;
+        const tot = totalPoints
+        questionElement.innerText = `Final score: ${tot}. \n You got ${end}/${shuffledQuestions.length}`;
         submitButton.classList.add("hide")
+        hearMoreButton.classList.add("hide")
         levelContainerElement.classList.remove("hide");
         line.classList.remove("hide");
         startButton.innerText = "Restart";
@@ -521,6 +537,8 @@ function submitAnswer(event) {
         startButton.addEventListener("click", () => {
         score = 0;
         scoreValueElement.innerText = score
+        totalPoints = 0
+        document.getElementById("totalPointsValue").innerText = totalPoints.toString();
         });
     }
 }
