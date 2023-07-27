@@ -420,6 +420,8 @@ function startGame() {
     setNextQuestion();
 }
 
+let startTime, maxTime;
+
 function setNextQuestion() {
     resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex]);
@@ -427,6 +429,9 @@ function setNextQuestion() {
     answerField.value = "";
     answerField.classList.remove("correct-answer", "wrong-answer");
     submitButton.disabled = false;
+
+    startTime = new Date().getTime();
+    maxTime = 15000;
 }
 
 function showQuestion(question) {
@@ -457,6 +462,22 @@ function submitAnswer(event) {
     const correctAnswer = shuffledQuestions[currentQuestionIndex].correctAnswer;
     const ans = correctAnswer.split(" ");
 
+    const endTime = new Date().getTime();
+    const timeTaken = endTime - startTime;
+    let bonusPoints = 0;
+    if (input === correctAnswer.toLowerCase().replace(/\s+/g, '').replace(/[^\w\s]/gi, '')) {
+        if (timeTaken <= maxTime * 0.2) { // Answered within the first 20% of the max time
+            bonusPoints = 3;
+        } else if (timeTaken <= maxTime * 0.5) { // Answered within the first 50% of the max time
+            bonusPoints = 2;
+        } else if (timeTaken <= maxTime * 0.8) { // Answered within the first 80% of the max time
+            bonusPoints = 1;
+        }
+    }
+
+    const basePoints = input === correctAnswer.toLowerCase().replace(/\s+/g, '').replace(/[^\w\s]/gi, '') ? 1 : 0;
+    const totalPoints = basePoints + bonusPoints;
+
     const formatted_ans = ans.map((word) => { 
             return word[0].toUpperCase() + word.substring(1); 
         }).join(" ");    
@@ -483,6 +504,9 @@ function submitAnswer(event) {
         audio.currentTime = 0;
         audio = null;
     }
+
+    startTime = 0;
+    maxTime = 0;
 
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove("hide");
