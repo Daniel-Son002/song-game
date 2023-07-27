@@ -193,8 +193,8 @@ var questions = [
         correctAnswer: 'champagne problems'
     },
     {
-        question: 'majorie',
-        correctAnswer: 'majorie'
+        question: 'marjorie',
+        correctAnswer: 'marjorie'
     },
     {
         question: 'enchanted',
@@ -257,16 +257,8 @@ var questions = [
         correctAnswer: 'lavender haze'
     },
     {
-        question: 'tim mcgraw',
-        correctAnswer: 'tim mcgraw'
-    },
-    {
         question: 'bad blood',
         correctAnswer: 'bad blood'
-    },
-    {
-        question: 'mirrorball',
-        correctAnswer: 'mirrorball'
     },
     {
         question: 'wildest dreams',
@@ -290,7 +282,7 @@ var questions = [
     },
     {
         question: 'mtr',
-        correctAnswer: 'my tears riccochet'
+        correctAnswer: 'my tears ricochet'
     },
     {
         question: 'illicit affairs',
@@ -303,6 +295,14 @@ var questions = [
     {
         question: 'tlgad',
         correctAnswer: 'the last great american dynasty'
+    },
+    {
+        question: 'nbnc',
+        correctAnswer: 'no body, no crime'
+    },
+    {
+        question: 'll',
+        correctAnswer: 'long live'
     }
 
 ];
